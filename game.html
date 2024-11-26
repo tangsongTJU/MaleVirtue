@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>温暖的小游戏</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="container">
+        <div class="game-card">
+            <img src="images/romantic-dinner.jpg" alt="浪漫晚餐场景" class="game-image">
+
+            <div class="question-text">
+                桌上摆放着精致的餐具和美味的菜肴，你和她坐在靠窗的位置。然而，尽管环境宜人，你们的气氛却已充满紧张。你最近工作压力巨大，经常加班，而她也因为项目的截止日期感到焦虑。这次赴约你迟到了，好像一次吵架要不可避免了。你就坐后，会对她说什么？
+            </div>
+
+            <div class="options">
+                <label class="option">
+                    <input type="radio" name="answer" value="1">
+                    <span class="option-text">A. "宝宝，你等好久了，饿坏了吧！我赶快让服务员点一下菜，我打算点你最吃的牛排"</span>
+                </label>
+
+                <label class="option">
+                    <input type="radio" name="answer" value="2">
+                    <span class="option-text">B. "宝宝，你不太开心，是因为我迟到了嘛？还是因为最近工作比较忙~"</span>
+                </label>
+
+                <label class="option">
+                    <input type="radio" name="answer" value="3">
+                    <span class="option-text">C. "宝宝，迟到了非常抱歉，最近太忙忽视你的感受，今晚我们好好陪伴一下好吗"</span>
+                </label>
+            </div>
+
+            <div class="custom-answer">
+                <textarea placeholder="如果以上选项都不合适，请在这里输入你的答案..." rows="3"></textarea>
+            </div>
+
+            <button class="submit-btn" id="submitBtn">提交答案</button>
+        </div>
+    </div>
+
+    <script>
+    document.getElementById('submitBtn').addEventListener('click', function(e) {
+        const selectedOption = document.querySelector('input[name="answer"]:checked');
+        const customAnswer = document.querySelector('textarea').value.trim();
+
+        if (!selectedOption && !customAnswer) {
+            e.preventDefault();
+            alert('请选择一个选项或输入自定义答案');
+            return false;
+        }
+
+        window.location.href = 'scene2.html';
+    });
+    </script>
+</body>
+</html>

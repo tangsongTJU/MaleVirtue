@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>温暖的小游戏 - 场景3</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="container">
+        <div class="game-card">
+            <img src="images/dating.jpg" alt="约会场景" class="game-image">
+
+            <div class="question-text">
+                今天，一位久违的女同学约你出来："嗨，好久不见！今晚十点有空吗？一起去附近那家新开的酒馆坐坐？"。你们之前关系很好，你们约了几次出来见面都没成，这次再不见到，她就要去美国了。你觉得你会怎么处理：
+            </div>
+
+            <div class="options">
+                <label class="option">
+                    <input type="radio" name="answer" value="1">
+                    <span class="option-text">A. 觉得10点这个时间有点不合适，商量着和女同学换一个时间</span>
+                </label>
+
+                <label class="option">
+                    <input type="radio" name="answer" value="2">
+                    <span class="option-text">B. 觉得很久没有约上了所以要赴约，但是跟她说一下让她放心</span>
+                </label>
+
+                <label class="option">
+                    <input type="radio" name="answer" value="3">
+                    <span class="option-text">C. 觉得如果告诉她她会生气，反正自己也没有歹心，去赴约但是不告诉她就好了</span>
+                </label>
+            </div>
+
+            <div class="custom-answer">
+                <textarea placeholder="如果以上选项都不合适，请在这里输入你的答案..." rows="3"></textarea>
+            </div>
+
+            <button class="submit-btn" id="submitBtn">提交答案</button>
+        </div>
+    </div>
+
+    <script>
+    document.getElementById('submitBtn').addEventListener('click', function(e) {
+        // 获取选中的单选按钮和自定义答案
+        const selectedOption = document.querySelector('input[name="answer"]:checked');
+        const customAnswer = document.querySelector('textarea').value.trim();
+
+        // 如果没有选择选项且没有填写自定义答案
+        if (!selectedOption && !customAnswer) {
+            e.preventDefault(); // 阻止默认行为
+            alert('请选择一个选项或输入自定义答案');
+            return false;
+        }
+
+        // 如果验证通过，继续执行跳转
+        window.location.href = 'scene4.html';
+    });
+    </script>
+</body>
+</html>

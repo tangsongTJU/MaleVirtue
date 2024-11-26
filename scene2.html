@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>温暖的小游戏 - 场景2</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="container">
+        <div class="game-card">
+            <img src="images/swimming-pool.jpg" alt="游泳池场景" class="game-image">
+
+            <div class="question-text">
+                她刚刚从游泳馆回来，看起来心事重重。你上去关心的问了一下，她说游泳时有个中年男子，坐在游泳池边的椅子上，一直盯着她看。她下水，男人也下水。她上岸，男人也上岸。她感到非常不适，你打算怎么说？
+            </div>
+
+            <div class="options">
+                <label class="option">
+                    <input type="radio" name="answer" value="1">
+                    <span class="option-text">A. "宝宝，我理解你的不适，下次我陪你一起去，遇到这种猥琐男我就揍他！"</span>
+                </label>
+
+                <label class="option">
+                    <input type="radio" name="answer" value="2">
+                    <span class="option-text">B. "宝宝，你想想，他之所以看你是因为你漂亮！说明宝宝天生丽质，还说明我眼光好【得意】"</span>
+                </label>
+
+                <label class="option">
+                    <input type="radio" name="answer" value="3">
+                    <span class="option-text">C. "宝宝，我理解你的不适。下次遇到这种情况，你就勇敢地瞪回去，跟她对峙！"</span>
+                </label>
+            </div>
+
+            <div class="custom-answer">
+                <textarea placeholder="如果以上选项都不合适，请在这里输入你的答案..." rows="3"></textarea>
+            </div>
+
+            <button class="submit-btn" id="submitBtn">提交答案</button>
+        </div>
+    </div>
+
+    <script>
+    document.getElementById('submitBtn').addEventListener('click', function(e) {
+        const selectedOption = document.querySelector('input[name="answer"]:checked');
+        const customAnswer = document.querySelector('textarea').value.trim();
+
+        if (!selectedOption && !customAnswer) {
+            e.preventDefault();
+            alert('请选择一个选项或输入自定义答案');
+            return false;
+        }
+
+        window.location.href = 'scene3.html';
+    });
+    </script>
+</body>
+</html>
